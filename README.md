@@ -6,7 +6,7 @@ How to run:
 1) Create a file with secret, using `ansible-vault create secret`. It will ask for ansible_sudo_pass: mysudopassword 
 2) Create a file vault.txt to remember the password that you gonna use to decrypt this secret file
 3)RUN:
-`ansible-playbook playbook.yml -u someuser -i hosts --sudo --vault-password-file=vault.txt`
+`ansible-playbook playbook-docker.yml -i inventory.txt --vault-password-file=vault.txt`
 
 To use this idea:
 Remember to create 2 VMs

@@ -1,0 +1,28 @@
+-
+  name: Add and run docker image
+  hosts: target1
+  become: yes
+  vars_files:
+    - secret
+
+  tasks:
+    - name: Add docker run
+      yum:
+        name: docker
+        state: present
+      become_method: sudo
+
+    - name: Start docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+      become_method: sudo
+
+    - name: Pull docker image
+      command: docker pull michelleamesquita/simpleapp:latest
+      become_method: sudo
+
+    - name: Run docker image
+      command: docker run --rm -d --name app3 -p 8080:8080 michelleamesquita/simpleapp:latest
+      become_method: sudo

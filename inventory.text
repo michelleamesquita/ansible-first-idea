@@ -1,0 +1,7 @@
+ansible_user=osboxes.org
+ansible_become=yes
+ansible_become_method=sudo
+ansible_become_pass='{{ my_file_sudo_pass }}'
+
+target1 ansible_host=10.0.1.9 ansible_ssh_pass=osboxes.org
+target2 ansible_host=10.0.1.12 ansible_ssh_pass=osboxes.org
